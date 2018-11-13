@@ -1,7 +1,8 @@
 # Code Orange Talk
+This will show the classic way in some of the beginnings of monolithic apps and some of the *why* in migrating them over to microservices.
 
-## MVC Monoliths
-This will show the classic way in how we built monolithic applications.
+## MVC Monoliths to Microservices
+The classic monolith followed the architecture of having all services, frontend, backend coupled together typically attached to an external DB for persistence. Although only a single service in this instance, the frontend and backends were often tied together using a type of MVC pattern.
 
 ### Initialize an application with Spring Boot SDK
 `brew install spring-boot`
