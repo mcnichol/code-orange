@@ -28,7 +28,10 @@ This will show the classic way in how we built monolithic applications.
 
 ## Going Headless
 1. Create React App
-1. Spring Boot init with Web, JPA, JDBC
+    1. Test Watcher in React
+    1. Create Banner
+    1. Create Title
+1. Spring Boot init with web,jpa,h2
     1. `@Controller` vs `@RestController`
 
 ## Data as backing services
