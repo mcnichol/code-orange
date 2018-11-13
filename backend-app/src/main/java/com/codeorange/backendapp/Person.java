@@ -3,6 +3,8 @@ package com.codeorange.backendapp;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 
+import java.util.Objects;
+
 @JsonDeserialize(builder = Person.Builder.class)
 public class Person {
     private String name;
@@ -45,5 +47,27 @@ public class Person {
 
     public String getRole() {
         return role;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return Objects.equals(name, person.name) &&
+                Objects.equals(role, person.role);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, role);
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", role='" + role + '\'' +
+                '}';
     }
 }
