@@ -31,6 +31,7 @@ This will show the classic way in how we built monolithic applications.
     1. Test Watcher in React
     1. Create Banner
     1. Create Title
+        1. Align vs Justify with Flex
 1. Spring Boot init with web,jpa,h2
     1. `@Controller` vs `@RestController`
 
