@@ -1,16 +1,16 @@
 # Code Orange Talk
 
-## MVC Monoliths
-This will show the classic way in some of the beginnings of monolithic apps and some of the *why* in migrating them over to microservices.
+## Migrating from MVC and Monolith to SPA and Microservices
+This repo shows the beginnings of many monolithic applications in todays enterprises.  We will have an opportunity to discuss *why* certain choices are made, weight the Pro/Cons and understand at what point the Cons may outweigh our needs causing us to migrate towards a different type of architecture. 
 
-## MVC Monoliths to Microservices
-The classic monolith followed the architecture of having all services, frontend, backend coupled together typically attached to an external DB for persistence. Although only a single service in this instance, the frontend and backends were often tied together using a type of MVC pattern.
+### MVC Monolith
+The classic monolith followed the architecture of having all services, frontend, backend coupled together typically storing off to an external DB through JDBC for persistence. Although only a single service in this instance, the frontend and backends are tied together using Thymeleaf templating following the MVC pattern.
 
-### Initialize an application with Spring Boot SDK
-`brew install spring-boot`
+#### Initialize an application with Spring Boot SDK
+`brew install spring-boot`  
 `spring init --build=gradle -g=com.codeorange -d=web,thymeleaf mvc-app`
 
-### TDD/Pair the MVC Monolith
+#### TDD/Pair the MVC Monolith
 1. Integration `contextLoads()` test
 1. Test `isAnnotationPresent()`
 1. Create helloWorld test and template
@@ -29,31 +29,37 @@ The classic monolith followed the architecture of having all services, frontend,
 1. Discuss Testing Triangle
 1. Test mockito verify delegation to PersonService
 
-## Going Headless
+### Going Headless - SPA's and Microservices
+A common approach towards separating the frontend from leveraging a SPA approach introduces certain tradeoffs in session, content, and server side rendering for flexibility in deployment and devleopment alongside certain performance tradeoffs advantageous in certain situations. Modern Javascript frameworks such as React offer significant support in making SPA's high functioning services able to route requests and render in a performant (and highly reusable) manner.
+
+#### TDD the SPA
 1. Create React App
     1. Test Watcher in React
     1. Create Banner
     1. Create Title
         1. Align vs Justify with Flex
+
+#### TDD the Backend REST Microservice
 1. Spring Boot init with web,jpa,h2
 1. Create RestController
     1. `@Controller` vs `@RestController`
     1. Test with isAnnotationPresent()
     1. Test `/user` endpoint
+        1. Discuss RESTful 
     1. Builder vs Beans
         1. `@JsonDeserialize` && `@JsonPOJOBuilder` 
     1. Inject PersonService and verify
 1. Test PersonService
     1. PersonEntity
     1. Discuss DTO / Entity  
-    1. Implement Repository
+1. Implement Repository
     1. data.sql && schema.sql
-     
+    1. Discuss Flyway and ORM
 
-## Data as backing services (Unlikely due to time limitation)
+### Data as backing services (Unlikely due to time limitation)
 Connect to a Redis Cache
 
-## Controlling the Cache - Getting dirty with Hashtables (Highly Unlikely due to time limitation)
+### Controlling the Cache - Getting dirty with Hashtables (Highly Unlikely due to time limitation)
 Implement our own Hashtable
 
 
