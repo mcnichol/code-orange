@@ -32,4 +32,20 @@ public class PersonServiceTest {
         verify(mockPersonRepository).findByName(expectedPerson.getName());
         assertThat(actualPerson, equalTo(expectedPerson));
     }
+
+
+    @Test
+    public void getPersonIsCaseInsensitive() {
+        PersonEntity personEntity = new PersonEntity();
+        personEntity.setId(1);
+        personEntity.setName("personname");
+        personEntity.setRole("role");
+        Person expectedPerson = new Person.Builder().name("personname").role("role").build();
+        when(mockPersonRepository.findByName("personname")).thenReturn(personEntity);
+
+        Person actualPerson = subject.getPerson("PERSONNAME");
+
+        verify(mockPersonRepository).findByName(expectedPerson.getName());
+        assertThat(actualPerson, equalTo(expectedPerson));
+    }
 }

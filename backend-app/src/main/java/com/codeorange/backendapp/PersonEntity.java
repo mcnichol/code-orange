@@ -1,6 +1,7 @@
 package com.codeorange.backendapp;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Objects;
@@ -9,6 +10,7 @@ import java.util.Objects;
 @Table(name = "person")
 public class PersonEntity {
     @Id
+    @GeneratedValue
     Integer id;
     String name;
     String role;
