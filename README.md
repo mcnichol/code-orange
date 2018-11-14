@@ -1,4 +1,6 @@
 # Code Orange Talk
+
+## MVC Monoliths
 This will show the classic way in some of the beginnings of monolithic apps and some of the *why* in migrating them over to microservices.
 
 ## MVC Monoliths to Microservices
@@ -34,12 +36,24 @@ The classic monolith followed the architecture of having all services, frontend,
     1. Create Title
         1. Align vs Justify with Flex
 1. Spring Boot init with web,jpa,h2
+1. Create RestController
     1. `@Controller` vs `@RestController`
+    1. Test with isAnnotationPresent()
+    1. Test `/user` endpoint
+    1. Builder vs Beans
+        1. `@JsonDeserialize` && `@JsonPOJOBuilder` 
+    1. Inject PersonService and verify
+1. Test PersonService
+    1. PersonEntity
+    1. Discuss DTO / Entity  
+    1. Implement Repository
+    1. data.sql && schema.sql
+     
 
-## Data as backing services
+## Data as backing services (Unlikely due to time limitation)
 Connect to a Redis Cache
 
-## Controlling the Cache - Getting dirty with Hashtables
+## Controlling the Cache - Getting dirty with Hashtables (Highly Unlikely due to time limitation)
 Implement our own Hashtable
 
 
