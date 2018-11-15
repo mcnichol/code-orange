@@ -9,9 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import static org.hamcrest.Matchers.containsString;
 import static org.junit.Assert.assertTrue;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -37,7 +35,7 @@ public class AppControllerTest {
         Person person = new Person.Builder().name("Code Orange").role("Rockstar").build();
         when(mockPersonService.getPerson(person.getName())).thenReturn(person);
 
-        mockMvc.perform(get("/user/{name}", person.getName()))
+        mockMvc.perform(get("/users/{name}", person.getName()))
                 .andExpect(status().isOk())
                 .andExpect(content().string(containsString(om.writeValueAsString(person))));
 

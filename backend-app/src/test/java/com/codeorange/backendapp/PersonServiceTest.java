@@ -25,11 +25,11 @@ public class PersonServiceTest {
         personEntity.setName("personEntityName");
         personEntity.setRole("personEntityRole");
         Person expectedPerson = new Person.Builder().name("personEntityName").role("personEntityRole").build();
-        when(mockPersonRepository.findByName(expectedPerson.getName())).thenReturn(personEntity);
+        when(mockPersonRepository.findByName(expectedPerson.getName().toLowerCase())).thenReturn(personEntity);
 
         Person actualPerson = subject.getPerson(expectedPerson.getName());
 
-        verify(mockPersonRepository).findByName(expectedPerson.getName());
+        verify(mockPersonRepository).findByName(expectedPerson.getName().toLowerCase());
         assertThat(actualPerson, equalTo(expectedPerson));
     }
 

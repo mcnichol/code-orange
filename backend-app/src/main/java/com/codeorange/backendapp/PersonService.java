@@ -15,8 +15,12 @@ public class PersonService {
     public Person getPerson(String name) {
         PersonEntity personEntity = personRepository.findByName(name.toLowerCase());
 
-        Person person = new Person.Builder().role(personEntity.getRole()).name(personEntity.getName()).build();
+        Person person = mapEntityToObject(personEntity);
 
         return person;
+    }
+
+    private Person mapEntityToObject(PersonEntity personEntity) {
+        return new Person.Builder().role(personEntity.getRole()).name(personEntity.getName()).build();
     }
 }

@@ -21,14 +21,19 @@ The classic monolith followed the architecture of having all services, frontend,
 1. Create test and template for `/form` endpoint
     1. Test form Get endpoint exists
     1. Test Person object in Thymeleaf form (user, role) and fields `[th:object, th:action, th:field]`
-        1. `.andExpect(content().string().containsString("<button type=\"submit\">Submit</button>"))`
+        1. `.andExpect(content().string(containsString("<button type=\"submit\">Submit</button>"))`
 1. Create test for posting to /form endpoint
     1. Test for `status().isFound()` [302] with `redirect:/success`
     1. Test for `flash().attribute("person", hasProperty("name",equalTo("userName")))`
         1. * Note RedirectAttributes needed as signature `method(@ModelAttributes("person") Person person, BindingResult br, Model model, RedirectAttrubutes ra)`
 1. Discuss Testing Triangle
 1. Test mockito verify delegation to PersonService
-
+1. The story doesn't end here
+    1. Security
+    1. Model Validation
+    1. Error Handling
+    1. Persisting Data
+    
 ### Going Headless - SPA's and Microservices
 A common approach towards separating the frontend from leveraging a SPA approach introduces certain tradeoffs in session, content, and server side rendering for flexibility in deployment and devleopment alongside certain performance tradeoffs advantageous in certain situations. Modern Javascript frameworks such as React offer significant support in making SPA's high functioning services able to route requests and render in a performant (and highly reusable) manner.
 
